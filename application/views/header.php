@@ -59,7 +59,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>J</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -99,10 +99,10 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                  <a href="<?php echo base_url();?>usuarios/profile" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sair</a>
+                  <a href="<?php echo base_url();?>login/logout" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>

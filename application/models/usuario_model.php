@@ -44,6 +44,13 @@ public function atualizar($dados,$id)
 
 }
 
+public function addPhoto($dados,$id)
+{   
+    $this->db->where('id', $id);
+    $this->db->update('usuarios',$dados);
+
+}
+
 
 
 

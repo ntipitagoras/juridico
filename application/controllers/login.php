@@ -14,7 +14,7 @@ class Login extends CI_Controller {
 
 	public function autenticar()
 	{
-	 $this->load->model('usuario_model','usuario');
+	    $this->load->model('usuario_model','usuario');
 
       $email = $this->input->post('email');
       $senha = $this->input->post('senha');
@@ -37,6 +37,14 @@ class Login extends CI_Controller {
 
 
 	}
+
+  public function logout()
+  {
+
+    $this->session->sess_destroy();
+    redirect('login');
+
+   }
 
 
 

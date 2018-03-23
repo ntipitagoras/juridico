@@ -56,6 +56,11 @@ public function processosAtrasados($data)
 
 public function processosEncerrados()
 {
+	$this->db->select('*');
+	$this->db->from('encerrados');
+	$this->db->join('orgaos', 'orgao_id = orgaos.id_orgao', 'left'); 
+	$this->db->order_by("data_finalizacao", "DESC");
+	return $this->db->get()->result();
 	
 }
 

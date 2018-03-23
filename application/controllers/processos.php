@@ -162,7 +162,7 @@ class Processos extends CI_Controller {
        $data = date('Y/m/d');
        $dados = array('dados'=> $this->processos->processosAtrasados($data));
 
-        $this->load->view('header');
+    $this->load->view('header');
 		$this->load->view('atrasados', $dados);
 		$this->load->view('footer');
      
@@ -176,6 +176,11 @@ class Processos extends CI_Controller {
     {
      
      
+    $dados = array('dados'=> $this->processos->processosEncerrados());
+
+    $this->load->view('header');
+    $this->load->view('encerrados', $dados);
+    $this->load->view('footer');
 
 
 
