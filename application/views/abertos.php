@@ -29,6 +29,7 @@ if (isset($dados)) {
             echo "<th><b>Assunto</b></th>";
             echo "<th><b>Observação</b></th>";
             echo "<th><b>Órgão</b></th>";
+            echo "<th><b>Código</b></th>";
             echo "<th><b>Prazo</b></th>";
             echo "<th><b>Restando</b></th>";  
           echo "</tr>";
@@ -56,6 +57,7 @@ foreach ($dados as $process) {
  echo "<td>".$process->assunto."</td>";
  echo "<td>".$process->comentario."</td>";
  echo "<td>".$process->nome."</td>";
+ echo "<td>".$process->codigo_orgao."</td>";
  echo "<td>".date('d/m/Y',strtotime($process->data_final))."</td>";
  echo "<td><b>".$intervalo->format('%a')." Dias</b></td>";
  echo "<td><button type='button' class='btn btn-default btn-xs'  data-toggle='modal'  data-target='#editModal".$process->id."'>editar</button></td>";
@@ -90,6 +92,8 @@ echo "</tr>";
             ?>
            
           </select>
+        <label for="codigo">Código</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo $process->codigo_orgao ?>">
         <label for="date">Prazo</label>
         <input type="hidden" name="id" value="<?php echo $process->id ?>">
       <input class="form-control" type="date" name="data" id="data" required>

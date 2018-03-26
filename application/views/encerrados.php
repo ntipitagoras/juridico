@@ -61,11 +61,15 @@ echo "</tr>";
         <ul>
           <li><b>Nome:  </b><?php echo $process->requerente ?></li>
           <li><b>Assunto:  </b><?php echo $process->assunto ?></li>
-          <li><b>Data de recebimento:  </b><?php echo $process->data_recebimento?></li>
-          <li><b>Data final:  </b><?php echo $process->data_finalizacao ?></li>
+          <li><b>Data de recebimento:  </b><?php echo date('d/m/Y',strtotime($process->data_recebimento)) ?></li> 
+          <li><b>Data final:  </b><?php echo date('d/m/Y',strtotime($process->data_finalizacao))  ?></li>
           <li><b>Órgão:  </b><?php echo $process->nome ?></li>
+          <li><b>Código:  </b><?php echo $process->codigo_orgao ?></li> 
           <li><b>Observação:  </b><?php echo $process->comentario ?></li>
           <li><b>Resultado:  </b><?php echo $process->resultado ?></li>
+          <?php if ($process->file_path) {
+         echo "<li><b>Anexo:  </b> <a href='".base_url()."uploads/documentos/".$process->file_path."' target='_blank'>Arquivo.pdf</a></li>";
+          }   ?>
 
           
 

@@ -17,7 +17,14 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-
+<?php
+if ($this->session->flashdata('msg')) {
+   echo "<div class='col-sm-04'><div class='alert alert-success'>".$this->session->flashdata('msg')."</div>";
+}
+if ($this->session->flashdata('error')) {
+   echo "<div class='col-sm-04'><div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
+}
+?>
 <div class="well">
 <div class="row">
 <div class="col-sm-04">
@@ -135,14 +142,7 @@ echo "</table>";
 }
 
 ?>
-<?php
-if ($this->session->flashdata('msg')) {
-   echo "<div class='col-sm-04'><div class='alert alert-success'>".$this->session->flashdata('msg')."</div>";
-}
-if ($this->session->flashdata('error')) {
-   echo "<div class='col-sm-04'><div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
-}
-?>
+
 </section>
 
   </div>

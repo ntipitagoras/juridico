@@ -48,6 +48,9 @@
       <textarea id="coment" name="coment" class="form-control" placeholder="Opcional" rows="5" cols="4"></textarea>
     </div>
     <div class="col-sm-4">
+      <label for="cod">Código</label>
+      <input type="text" id="codigo" name="codigo" class="form-control" placeholder="DPU etc..">
+    
       <label for="prazo">Prazo</label>
       <input type="date" id="prazo" name="prazo" class="form-control" >
     </div>

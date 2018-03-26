@@ -89,14 +89,15 @@ class Usuarios extends CI_Controller {
     $this->load->view('footer');
   }
 
-    public function updateProfile()
+  public function updateProfile()
   { 
-    $this->load->helper('file');
-    $nome = $this->input->post('nome');
+    
+    $nome  = $this->input->post('nome');
     $email = $this->input->post('email');
     $senha =  $this->input->post('senha');
     $id    =  $this->input->post('id');
     $arquivo = $_FILES['imagem'];
+
     
     
     if ($senha) {

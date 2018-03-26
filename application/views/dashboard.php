@@ -26,7 +26,7 @@ if (isset($processos)) {
             echo "<th><b>Assunto</b></th>";
             echo "<th><b>Comentário</b></th>";
             echo "<th><b>Órgão</b></th>";
-            echo "<th><b>Prazo</b></th>";   
+            echo "<th><b>Código</b></th>";  
           echo "</tr>";
         echo "</thead>";
  echo "<tbody>";
@@ -38,6 +38,7 @@ echo "<tr>";
  echo "<td>".$process->assunto."</td>";
  echo "<td>".$process->comentario."</td>";
  echo "<td>".$process->nome."</td>";
+  echo "<td>".$process->codigo_orgao."</td>";
  echo "<td><button class='btn btn-primary btn-x' data-toggle='modal' data-target='#myModal".$process->id."'>Alterar</button</td>";
 echo "</tr>";
 

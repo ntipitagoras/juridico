@@ -10,7 +10,15 @@
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
+<section class="content container-fluid">
+  <?php
+if ($this->session->flashdata('msg')) {
+   echo "<div class='col-sm-04'><div class='alert alert-success'>".$this->session->flashdata('msg')."</div>";
+}
+if ($this->session->flashdata('error')) {
+   echo "<div class='col-sm-04'><div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
+}
+?>
 <div class="well">
 <div class="row">
 <div class="col-sm-04">
@@ -28,6 +36,7 @@ if (isset($dados)) {
             echo "<th><b>Assunto</b></th>";
             echo "<th><b>Observação</b></th>";
             echo "<th><b>Órgão</b></th>";
+            echo "<th><b>Código</b></th>";
             echo "<th><b>Prazo</b></th>";
             echo "<th><b>Atrasado</b></th>";  
           echo "</tr>";
@@ -45,6 +54,7 @@ echo "<tr class='bg-danger'>";
  echo "<td>".$process->assunto."</td>";
  echo "<td>".$process->comentario."</td>";
  echo "<td>".$process->nome."</td>";
+ echo "<td>".$process->codigo_orgao."</td>";
  echo "<td>".date('d/m/Y',strtotime($process->data_final))."</td>";
  echo "<td><b>".$intervalo->format('%a')." Dias</b></td>";
  echo "<td><button type='button' class='btn btn-default btn-xs'  data-toggle='modal'  data-target='#editModal".$process->id."'>Remarcar</button>";
@@ -102,7 +112,7 @@ echo "</tr>";
         <h4 class="modal-title">Finalizar processo</h4>
       </div>
       <div class="modal-body">
-        <form method="post" action="finalizar">
+        <form method="post" action="finalizar" enctype="multipart/form-data">
         <p>Informe um resultado para o processo: <b><?php echo $process->assunto ?></b></p>
         <label for="requerente">Requerente</label>
         <input type="text" required value="<?php echo $process->requerente ?>" class="form-control" name="requerente" id="requerente" placeholde="Nome do requerente">
@@ -110,11 +120,15 @@ echo "</tr>";
         <input type="text" required value="<?php echo $process->assunto ?>" class="form-control" name="assunto" id="assunto" placeholder="informe um assunto">
         <label for="coment">Resultado</label>
         <textarea id="coment" name="resultado" class="form-control" placeholder="Opcional" rows="5" cols="4"></textarea>
+        <label for="anexo">Anexar arquivo (pdf)</label>
+        <input type="file" class="form-control" name="anexo" id="anexo">
+
         <input type="hidden" name="id" value="<?php echo $process->id ?>">
         <input type="hidden" name="data_recebimento" value="<?php echo $process->data_recebimento?>">
         <input type="hidden" name="orgao_id" value="<?php echo $process->id_orgao ?>">
         <input type="hidden" name="comentario" value="<?php echo $process->comentario ?>">
         <input type="hidden" name="data_final" value="<?php echo $process->data_final?>">
+        <input type="hidden" name="codigo" value="<?php echo $process->codigo_orgao?>">
         
         
       </div>
@@ -140,14 +154,7 @@ echo "</table>";
 }
 
 ?>
-<?php
-if ($this->session->flashdata('msg')) {
-   echo "<div class='col-sm-04'><div class='alert alert-success'>".$this->session->flashdata('msg')."</div>";
-}
-if ($this->session->flashdata('error')) {
-   echo "<div class='col-sm-04'><div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
-}
-?>
+
 </section>
 
   </div>
